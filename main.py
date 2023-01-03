@@ -5,9 +5,6 @@ from random import randint
 import requests
 
 app = Flask(__name__)
-
-api_Agify = "https://api.agify.io"
-api_Genderize = "https://api.genderize.io"
 # you can write some python code in html using {{whatever}}
 currentYear = datetime.now().year
 blog_api = 'https://api.npoint.io/bf5d53a77828a9cc7b35'
