@@ -11,12 +11,15 @@
     <div class="top">
         <div class="title"><h1>Racool's Blog</h1></div>
     </div>
+<!--    accessing the data -->
     {% for blog in data: %}
     <div class="content">
         <div class="card">
-            <h2>{{blog["title"]}}</h2>
-            <p class="subtitle">Lorem ipsum dolor sit </p>
-            <a href="{{url_for('get_blog',num=blog['id'])}}">Read</a>
+            <h2>{{data[blog]["title"]}}</h2>
+            <p class="subtitle">{{data[blog]["subtitle"]}} </p>
+<!--            using jinja template to build unique url for a function    -->
+<!--this generates a link, and you can pass parameters then base on the parameter, you can generate a unique page-->
+            <a href="{{url_for('loadBlog',num=blog)}}">Read</a>
         </div>
     </div>
     {% endfor %}
