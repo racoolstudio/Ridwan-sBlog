@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="Racool" />
-        <title>Racool's Blog</title>
+        <meta name="author" content="" />
+        <title>{{data[id]['title']}}</title>
         <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -13,13 +13,13 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{url_for('static',filename = 'css/styles.css')}}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="{{url_for('startBlog')}}">R</a>
+                <a class="navbar-brand" href="{{url_for('startBlog')}}">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -28,52 +28,43 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('startBlog')}}">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('about')}}">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('contact')}}">Contact</a></li>
-                    </ul>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url_for('contact')}}">Contact</a></li>                    </ul>
                 </div>
             </div>
         </nav>
         <!-- Page Header-->
-<header class="masthead" style="background-image: url({{ url_for('static', filename='img/home-bg.jpg') }})">
+        <header class="masthead" style="background-image: url({{url_for('static',filename='img/post-bg.jpg')}})">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h1>Racool Blog</h1>
-                            <span class="subheading">Unleashing the coolest perspectives on life, tech, and culture</span>
+                        <div class="post-heading">
+                            <h1>{{data[id]['title']}}</h1>
+                            <h2 class="subheading">{{data[id]['subtitle']}}</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">{{data[id]['author']}}</a>
+                                on {{data[id]['date']}}
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                        <div class="col-lg-3">
+                            <a href="#!"><img class="img-fluid" style="width:300px;height:300px" src="{{url_for('static',filename='img/coming.jpg')}}" alt="coming soon picture" /></a></div>
+                        <div class="col-lg-9">
+                            <h2>Content</h2>
+                            <p>{{data[id]['body']}}</p>
+                        </div>
 
-<!--                    output the blog data -->
-                    {% for blog in data%}
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="{{url_for('loadBlog',num=blog)}}">
-                            <h2 class="post-title">{{data[blog]['title']}}</h2>
-                            <h3 class="post-subtitle">{{data[blog]['subtitle']}}</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">{{data[blog]['author']}}</a> on {{data[blog]['date']}}
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    {% endfor %}
-
-                                       <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
-        </div>
-       <!-- Footer-->
+        </article>
+        <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">

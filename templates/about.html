@@ -4,8 +4,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
-        <meta name="author" content="Racool" />
-        <title>Racool's Blog</title>
+        <meta name="author" content="" />
+        <title>About</title>
         <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -13,7 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{url_for('static',filename = 'css/styles.css')}}" rel="stylesheet" />
+                <link href="{{url_for('static',filename = 'css/styles.css')}}" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -34,46 +34,31 @@
             </div>
         </nav>
         <!-- Page Header-->
-<header class="masthead" style="background-image: url({{ url_for('static', filename='img/home-bg.jpg') }})">
+        <header class="masthead" style="background-image: url({{url_for('static',filename= 'img/about-bg.jpg')}})">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                            <h1>Racool Blog</h1>
-                            <span class="subheading">Unleashing the coolest perspectives on life, tech, and culture</span>
+                        <div class="page-heading">
+                            <h1>About Me</h1>
+                            <span class="subheading">This is what I do.</span>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
         <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-
-<!--                    output the blog data -->
-                    {% for blog in data%}
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="{{url_for('loadBlog',num=blog)}}">
-                            <h2 class="post-title">{{data[blog]['title']}}</h2>
-                            <h3 class="post-subtitle">{{data[blog]['subtitle']}}</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">{{data[blog]['author']}}</a> on {{data[blog]['date']}}
-                        </p>
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>I am a dynamic and perceptive individual passionate about computer science, hailing from Nigeria. I thoroughly enjoy learning various programming languages as they offer limitless potential to tackle problems. </p>
+                        <p>Through a multitude of projects, I have gained a comprehensive understanding of how to apply technology to enhance the opportunities of businesses and other industries. These endeavors fuel my enthusiasm and energy towards adopting new perspectives and embracing new challenges.</p>
+                        <p>Feel free to check out my online portfolio <a href="https://racoolstudio.github.io/myCV/">here</a>.</p>
                     </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    {% endfor %}
-
-                                       <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
-        </div>
-       <!-- Footer-->
+        </main>
+        <!-- Footer-->
         <footer class="border-top">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
